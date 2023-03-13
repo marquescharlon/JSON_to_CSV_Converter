@@ -1,60 +1,43 @@
-﻿using System.Collections;
-
-Console.Clear();
+﻿Console.Clear();
 
 // Pedir que seja informado na execução do programa
-//var textoJSON = Console.ReadLine();
+// var texto_json = Console.ReadLine();
 
 // 3. Como ler a informação JSON para realizar a manipulação?
 
-Console.WriteLine("3. Como ler a informação JSON para realizar a manipulação?");
-
-var textoJSON = @"{""Vaga"":""Desenvolvedor.NET"",""Empresa"":""Yardim"",""Nivel"":""Junior"",""Site"":""https://www.yardim.com.br/""}";
-Console.WriteLine(textoJSON);
-Console.Write("\n");
+var texto_json = @"[{""Vaga"":""Desenvolvedor.NET"",""Empresa"":""Yardim"",""Nivel"":""Junior"",""Site"":""https://www.yardim.com.br/""}]";
 
 // 4. Como manipular cada objeto encontrado do JSON?
 
-Console.WriteLine("4. Como manipular cada objeto encontrado do JSON?");
-
-var textoSTRING = Convert.ToString(textoJSON).Replace("{", "").Replace("}", "").Trim();
-var linha = textoSTRING.Split(",");
-
-foreach (var item in linha)
-{
-    Console.WriteLine(item);
-}
-
-Console.Write("\n");
+var texto_string = texto_json?.Replace("{", "").Replace("}", "").Trim();
+var linha = texto_string?.Split(",");
 
 // 5. Como extrair as Chaves que irão formar o cabeçalho no formato CSV?
 
-Console.WriteLine("5. Como extrair as Chaves que irão formar o cabeçalho no formato CSV?");
+string[] campos = new string[texto_string.Length];
+var primeiralinha = texto_string.Split(",");
 
-string[] campos = new string[textoSTRING.Length];
-var primeiralinha = textoSTRING.Split(",");
-
+HashSet<string> nomesVistos = new HashSet<string>();
 int p = 0;
+
 foreach (var item in primeiralinha)
 {
     var nomes = item.Split('"');
-    campos.SetValue(nomes[1], p);
-    p++;
+    string nome = nomes[1];
+
+    if (!nomesVistos.Contains(nome))
+    {
+        campos.SetValue(nome, p);
+        nomesVistos.Add(nome);
+        p++;
+    }
 }
-
-Console.WriteLine(campos[0]);
-Console.WriteLine(campos[1]);
-Console.WriteLine(campos[2]);
-Console.WriteLine(campos[3]);
-
-Console.Write("\n");
 
 // 6. Como construir meu CSV?
 
 // a. Construir primeiro o cabeçalho do CSV
 
 string[] textoCSV = new string[campos.Length];
-
 
 foreach (var item in campos)
 {
@@ -64,21 +47,40 @@ foreach (var item in campos)
     }
 }
 
-Console.WriteLine(textoCSV[0]);
-Console.WriteLine(textoCSV[1]);
-Console.WriteLine(textoCSV[2]);
-Console.WriteLine(textoCSV[3]);
-
 // // b. Construir o restante do corpo preenchendo com as demais linhas
 
-foreach (var item in campos)
+string[] corpo = new string[texto_string.Length];
+var segunda_linha = texto_string.Split(",");
+
+int count_corpo = 0;
+
+foreach (var item in segunda_linha)
+{
+    var nomes = item.Split('"');
+    string nome = nomes[1];
+
+    corpo.SetValue(nome, count_corpo);
+    count_corpo++;
+}
+
+foreach (var item in corpo)
 {
     if (item != null)
     {
-        textoCSV[0 + 1] += "\"" + textoJSON.Split("\"" + item + "\"")[1].Split("\"")[1] + "\",";
+        textoCSV[0 + 1] += "\"" + texto_json?.Split("\"" + item + "\"")[1].Split("\"")[1] + "\",";
 
     }
 }
 
-Console.WriteLine(textoCSV[0]);
-Console.WriteLine(textoCSV[1]);
+// c. Gerar e imprimir resultado
+
+var resultado = "";
+foreach (var item in textoCSV)
+{
+    if (item != null)
+    {
+        resultado += item + "\n";
+    }
+}
+
+Console.WriteLine(resultado);
