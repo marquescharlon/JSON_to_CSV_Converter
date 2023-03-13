@@ -68,3 +68,17 @@ Console.WriteLine(textoCSV[0]);
 Console.WriteLine(textoCSV[1]);
 Console.WriteLine(textoCSV[2]);
 Console.WriteLine(textoCSV[3]);
+
+// // b. Construir o restante do corpo preenchendo com as demais linhas
+
+foreach (var item in campos)
+{
+    if (item != null)
+    {
+        textoCSV[0 + 1] += "\"" + textoJSON.Split("\"" + item + "\"")[1].Split("\"")[1] + "\",";
+
+    }
+}
+
+Console.WriteLine(textoCSV[0]);
+Console.WriteLine(textoCSV[1]);
