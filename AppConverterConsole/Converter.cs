@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace AppConverterConsole
 {
     public static class Converter
@@ -16,6 +11,19 @@ namespace AppConverterConsole
             Console.WriteLine("Informar o texto JSON");
             var texto_json = Console.ReadLine();
 
+            if (texto_json == "")
+            {
+                Console.WriteLine("O campo está vazio. Preencha-o novamente!");
+                Thread.Sleep(4000);
+                Converter.JsonToCSV();
+            }
+            else if (!IsValidJson(texto_json))
+            {
+                Console.Write("\n");
+                Console.WriteLine("JSON no formato inválido. Preencha-o novamente!");
+                Thread.Sleep(4000);
+                Converter.JsonToCSV();
+            }
 
             // 3. Como ler a informação JSON para realizar a manipulação?
 
@@ -103,6 +111,40 @@ namespace AppConverterConsole
             Console.WriteLine(resultado);
             Menu.LimparTela();
 
+            static bool IsValidJson(string jsonString)
+            {
+                int tamanho = 0;
+                bool sequencia = false;
+
+                foreach (char c in jsonString)
+                {
+                    switch (c)
+                    {
+                        case '{':
+                        case '[':
+                            if (!sequencia)
+                            {
+                                tamanho++;
+                            }
+                            break;
+
+                        case '}':
+                        case ']':
+                            if (!sequencia)
+                            {
+                                tamanho--;
+                            }
+                            break;
+
+                        case '"':
+                            sequencia = !sequencia;
+                            break;
+                    }
+                }
+
+                return tamanho == 0 && !sequencia;
+            }
         }
+
     }
 }
