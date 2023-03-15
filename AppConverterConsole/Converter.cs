@@ -8,22 +8,12 @@ namespace AppConverterConsole
             Console.Clear();
 
             // Pedir que seja informado na execução do programa
+            Console.WriteLine("\n");
             Console.WriteLine("Informar o texto JSON");
+
             var texto_json = Console.ReadLine();
 
-            if (texto_json == "")
-            {
-                Console.WriteLine("O campo está vazio. Preencha-o novamente!");
-                Thread.Sleep(4000);
-                Converter.JsonToCSV();
-            }
-            else if (!IsValidJson(texto_json))
-            {
-                Console.Write("\n");
-                Console.WriteLine("JSON no formato inválido. Preencha-o novamente!");
-                Thread.Sleep(4000);
-                Converter.JsonToCSV();
-            }
+            ValidateText.CheckCondition(texto_json);
 
             // 3. Como ler a informação JSON para realizar a manipulação?
 
@@ -85,12 +75,14 @@ namespace AppConverterConsole
                 count_corpo++;
             }
 
+            var item_temp = corpo[1].ToString();
+            var cont_linha = 0;
+
             foreach (var item in corpo)
             {
                 if (item != null)
                 {
-                    textoCSV[0 + 1] += "\"" + texto_json?.Split("\"" + item + "\"")[1].Split("\"")[1] + "\",";
-
+                    textoCSV[cont_linha + 1] += "\"" + texto_json?.Split("\"" + item + "\"")[1].Split("\"")[1] + "\",";
                 }
             }
 
@@ -106,45 +98,12 @@ namespace AppConverterConsole
             }
 
             Console.WriteLine("\n");
-            Console.WriteLine("Esse é o texto convertido em um formato CSV:");
+            Console.WriteLine("-----------------------------------------------");
+            Console.WriteLine("|     Texto convertido em um formato CSV:     |");
+            Console.WriteLine("-----------------------------------------------");
             Console.WriteLine("\n");
             Console.WriteLine(resultado);
             Menu.LimparTela();
-
-            static bool IsValidJson(string jsonString)
-            {
-                int tamanho = 0;
-                bool sequencia = false;
-
-                foreach (char c in jsonString)
-                {
-                    switch (c)
-                    {
-                        case '{':
-                        case '[':
-                            if (!sequencia)
-                            {
-                                tamanho++;
-                            }
-                            break;
-
-                        case '}':
-                        case ']':
-                            if (!sequencia)
-                            {
-                                tamanho--;
-                            }
-                            break;
-
-                        case '"':
-                            sequencia = !sequencia;
-                            break;
-                    }
-                }
-
-                return tamanho == 0 && !sequencia;
-            }
         }
-
     }
 }
