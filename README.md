@@ -27,6 +27,8 @@ Texto JSON: ```[{"Vaga":"Desenvolvedor.NET","Empresa":"Yardim","Nivel":"Junior",
 
 ![image](https://user-images.githubusercontent.com/22162514/225400577-ae235723-0d9e-4005-ac2e-434e3d6d4e39.png)
 
+![image](https://user-images.githubusercontent.com/22162514/225404262-ea59947f-471d-4568-80f2-1ba83329b646.png)
+
 ![image](https://user-images.githubusercontent.com/22162514/225401096-765d38e4-ca00-4115-b40f-053e2af75a14.png)
 
 
