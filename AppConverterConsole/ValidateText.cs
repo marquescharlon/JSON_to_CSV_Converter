@@ -35,13 +35,14 @@ namespace AppConverterConsole
 
         public static void CheckCondition(string json_text)
         {
-            if (json_text.StartsWith("[{") || json_text.StartsWith("{"))
+            if (json_text == "")
             {
-                if (json_text == "")
-                {
-                    Mensagem("O campo está vazio. Preencha-o novamente!");
-                }
-                else if (!IsValidJson(json_text))
+                Mensagem("O campo está vazio. Preencha-o novamente!");
+            }
+            else if (json_text.StartsWith("[{") || json_text.StartsWith("{"))
+            {
+
+                if (!IsValidJson(json_text))
                 {
                     Mensagem("JSON no formato inválido. Preencha-o novamente!");
                 }
