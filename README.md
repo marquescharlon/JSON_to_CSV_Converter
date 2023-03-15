@@ -1,6 +1,8 @@
 # Converter texto JSON para CSV
 Repositório destinado à avaliação solicitada pela Yardim (https://www.yardim.com.br/)
 
+Primeira versão feita no [Console .NET 7.0](https://github.com/marquescharlon/JSON_to_CSV_Converter/releases/tag/v1.0.0)
+
 ## Parâmetros
 
 Texto JSON: ```[{"Vaga":"Desenvolvedor.NET","Empresa":"Yardim","Nivel":"Junior","Site":"https://www.yardim.com.br/"}]```
