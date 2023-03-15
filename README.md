@@ -38,7 +38,7 @@ Texto JSON: ```[{"Vaga":"Desenvolvedor.NET","Empresa":"Yardim","Nivel":"Junior",
 - [x] O usuário pode colar um JSON em uma caixa de texto
 - [x] O usuário pode clicar no botão 'Converter' para validar o JSON e convertê-lo em CSV
 - [x] O usuário pode ver o CSV convertido em outra caixa de texto
-- [x] O usuário pode ver uma mensagem de aviso se a caixa de texto JSON estiver vazia ou se não contiver um JSON válido
+- [x] O usuário pode ver uma mensagem de aviso se a caixa de texto estiver vazia ou se não contiver um JSON válido
 - [x] O usuário pode clicar no botão 'Limpar' para limpar o conteúdo das caixas de texto JSON e CSV.
 
 ## Bônus 
