@@ -1,4 +1,4 @@
-# json_to_csv_converter
+# Converter texto JSON para CSV
 Repositório destinado à avaliação solicitada pela Yardim (https://www.yardim.com.br/)
 
 ## Parâmetros
