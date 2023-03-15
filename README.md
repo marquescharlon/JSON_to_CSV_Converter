@@ -20,6 +20,7 @@ Texto JSON: ```[{"Vaga":"Desenvolvedor.NET","Empresa":"Yardim","Nivel":"Junior",
 ## Recursos utilizados
 ```.NET 7.0```
 ```Visual Studio 2022```
+```Visual Studio Code```
 
 ## Preview
 
