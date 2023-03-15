@@ -15,6 +15,11 @@ Texto JSON: ```[{"Vaga":"Desenvolvedor.NET","Empresa":"Yardim","Nivel":"Junior",
 	}
 ]
 ```
+## Recursos utilizados
+```.NET 7.0```
+```Visual Studio 2022```
+
+## Preview
 
 ![image](https://user-images.githubusercontent.com/22162514/225399976-632a1b7a-509d-42f3-8c51-d4d09ac5a1d1.png)
 
