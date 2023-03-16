@@ -3,6 +3,10 @@ Repositório destinado à avaliação solicitada pela Yardim (https://www.yardim
 
 A primeira versão foi feita no Console .NET 7.0 e você pode consultar [aqui](https://github.com/marquescharlon/JSON_to_CSV_Converter/releases)
 
+## Demo
+
+Uma demo foi publicada e disponibilizada para testes, [clique aqui!](http://appconverter.somee.com/)
+
 ## Parâmetros
 
 Texto JSON: ```[{"Vaga":"Desenvolvedor.NET","Empresa":"Yardim","Nivel":"Junior","Site":"https://www.yardim.com.br/"}]```
