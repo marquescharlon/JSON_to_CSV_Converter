@@ -22,9 +22,11 @@ Texto JSON: ```[{"Vaga":"Desenvolvedor.NET","Empresa":"Yardim","Nivel":"Junior",
 ]
 ```
 ## Recursos utilizados
-```.NET 7.0```
-```Visual Studio 2022```
-```Visual Studio Code```
+[```.NET 7.0```](https://dotnet.microsoft.com/pt-br/download/dotnet/7.0)
+[```Bootstrap 5.3.0```](https://getbootstrap.com/)
+[```Git```](https://gitforwindows.org/)
+```JavaScript```
+[```Visual Studio 2022```](https://visualstudio.microsoft.com/pt-br/)
 
 ## Preview
 
