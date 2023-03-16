@@ -5,7 +5,7 @@ A primeira versão foi feita no Console .NET 7.0 e você pode consultar [aqui](h
 
 ## Demo
 
-Uma demo foi publicada e disponibilizada para testes, [clique aqui!](http://appconverter.somee.com/)
+Uma demo foi publicada e disponibilizada para teste, [clique aqui!](http://appconverter.somee.com/)
 
 ## Parâmetros
 
